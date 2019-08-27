@@ -7,13 +7,26 @@
     <title>Vídeo Aula</title>
 </head>
 <body>
+    <div style="margin: 0 0 5px 0; background: black; padding: 10px" >
+        <input type="text" name="txturl" id="txturl" size="50">
+        <input type="button" value="carregar" onclick="carregarurl()">
+    </div>
+    
     <center>
-        <iframe width="100%" style="height: 97vh;"
+        <iframe id="ifvideo" width="100%" style="height: 97vh;"
         src="https://www.youtube.com/embed/f5es-PpaUI8" 
         frameborder="0" 
         allow="accelerometer; autoplay; 
         encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen></iframe>    
     </center>   
+    
 </body>
+<script>
+    function carregarurl(){
+        var cod = document.getElementById('txturl').value.substring(17,29)
+        var url = "https://www.youtube.com/embed/" + cod
+        document.getElementById('ifvideo').src = url
+    }
+</script>
 </html>
