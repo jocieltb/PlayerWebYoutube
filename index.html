@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vídeo Aula</title>
+    <title>Player Youtube</title>
 </head>
 <style>
     #dvcontrole{
@@ -20,30 +20,32 @@
         padding: 2px;
         background: white;
     }
-    #ifvideo{
-        text-align: center;       
+    #btCarregar, #btOcultar{
+        font: Normal 12pt Arial;
+    }
+    #txturl{
+        font: normal 12pt Arial;
     }
 </style>
 <body>
     <div id="mostrar" onmouseover="mostrarControles()"></div>
     <div id="dvcontrole">
         Link do youtube: 
-        <input type="text" name="txturl" id="txturl" size="50">
-        <input type="button" value="Carregar" onclick="carregarVideo()">
+        <input type="text" name="txturl" id="txturl" size="60">
+        <input type="button" id="btCarregar" value="Carregar" onclick="carregarVideo()">
+        <input type="button" id="btOcultar" value="X" onclick="ocutarControles()">
     </div>
     
-    <iframe id="ifvideo" width="100%" hidden="true" src="#" frameborder="0" allowfullscreen></iframe>    
+    <iframe id="ifvideo" hidden="true" src="#" frameborder="0" allowfullscreen></iframe>    
       
 </body>
 <script>
     function carregarVideo(){
         var cod = document.getElementById('txturl').value.substring(17,28)
-        var url = "https://www.youtube.com/embed/" + cod + "?autoplay=1"
         ocutarControles()
-        document.getElementById('ifvideo').src = url
+        document.getElementById('ifvideo').src = "https://www.youtube.com/embed/" + cod
         tamanhoTela()
         document.getElementById('ifvideo').hidden = false
-        
     }
     function ocutarControles(){
         document.getElementById('dvcontrole').hidden = true
@@ -53,8 +55,8 @@
     }
 
     function tamanhoTela(){
-        var tela = window.innerWidth
-        document.getElementById('ifvideo').height = (tela / 16) * 9
+        document.getElementById('ifvideo').width = window.innerWidth - 16
+        document.getElementById('ifvideo').height = ((window.innerWidth - 16) / 16) * 9
     }
     window.addEventListener('resize', function(){
         tamanhoTela()
