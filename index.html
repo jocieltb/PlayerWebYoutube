@@ -8,49 +8,61 @@
     <title>Player Youtube</title>
 </head>
 <style>
+        
     #dvcontrole{
-        margin: auto 0 10px 0;
+        margin: 10px auto 10px auto;
+        width: 70vw;
         background: rgb(250, 250, 250); 
         padding: 10px;
         border-radius: 7px;
         box-shadow: 2px 2px 5px rgba(165, 164, 164, 0.9);
         text-align: center;
-        font: normal 12pt Arial;
+        font: normal 12pt Arial
     }
     #mostrar{
         padding: 3px;
         width: 100px;
         background: rgb(255, 255, 255);
-        float:right;
+        float:right
     }
-    #btCarregar, #btOcultar{
+    #btCarregar, #btOcultar, #txturl{
         font: Normal 12pt Arial;
     }
-    #txturl{
-        font: normal 12pt Arial;
+    #imgLogo{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
     }
 </style>
 <body>
+    
     <div id="mostrar" onmouseover="mostrarControles()"></div>
     <div id="dvcontrole">
         Link do youtube: 
         <input type="text" name="txturl" id="txturl" size="60">
         <input type="button" id="btCarregar" value="Carregar" onclick="carregarVideo()">
-        <input type="button" id="btOcultar" value="X" onclick="ocutarControles()">
+        <input type="button" id="btOcultar" value="-" onclick="ocutarControles()">
     </div>
     
     <iframe id="ifvideo" hidden="true" src="#" frameborder="0" allowfullscreen></iframe>    
-      
+    <div id="imgLogo"></div>
 </body>
 <script>
+    var logo = document.getElementById('imgLogo')
+    var imgApp = document.createElement('img')
+
     function carregarVideo(){
         var cod = document.getElementById('txturl').value.substring(17,28)
         ocutarControles()
         document.getElementById('ifvideo').src = "https://www.youtube.com/embed/" + cod
         tamanhoTela()
         document.getElementById('ifvideo').hidden = false
+        
     }
     function ocutarControles(){
+        document.getElementById('imgApp').hidden = true
         document.getElementById('dvcontrole').hidden = true
     }
     function mostrarControles(){
@@ -64,5 +76,8 @@
     window.addEventListener('resize', function(){
         tamanhoTela()
     });
+    imgApp.setAttribute('id', 'imgApp')
+    imgApp.setAttribute('src', 'youtube-icon.png')
+    logo.appendChild(imgApp)
 </script>
 </html>
