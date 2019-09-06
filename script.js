@@ -1,21 +1,41 @@
     function carregarVideo(){
         var urlvideo = document.getElementById('txturl').value
         var cod = ''
-        var identificador = urlvideo.substring(28,29)        
-        
-        if(identificador == '?'){
+        var identificador = urlvideo.substring(8,16)  
+        ocutarControles()              
+        if(identificador == 'youtu.be'){
+            identificador = urlvideo.substring(28,29)
+            if(identificador == '?'){
+            //lista
             cod = urlvideo.substring(17,68)
             document.getElementById('ifVideo').src = "https://www.youtube.com/embed/" + cod
             document.getElementById('ifVideo').hidden = false
-           
-        
-        } else{
+            } else{
+            //Vídeo
             cod = urlvideo.substring(17,28)
             document.getElementById('ifVideo').src = "https://www.youtube.com/embed/" + cod
             document.getElementById('ifVideo').hidden = false
+            }
+        } else if(identificador == 'www.yout'){
+            identificador = urlvideo.substring(29,30)
+            if(identificador == '?'){
+            //lista
+            var list = '?list=' + urlvideo.substring(49,83)
+            cod = urlvideo.substring(32,43)
+            document.getElementById('ifVideo').src = "https://www.youtube.com/embed/" + cod + list
+            document.getElementById('ifVideo').hidden = false
+            } else{
+            //Vídeo
+            cod = urlvideo.substring(32,43)
+            document.getElementById('ifVideo').src = "https://www.youtube.com/embed/" + cod
+            document.getElementById('ifVideo').hidden = false
+            }    
+            
+        } else{
+            alert('Url do Vídeo Invalida')
+            mostrarControles()
         }
-        document.getElementById('mostrar').hidden = false
-        ocutarControles()
+        
         tamanhoTela()
                 
         
@@ -49,7 +69,17 @@
         tamanhoTela();
     });
 
+    function Skin(){
+        var modo = document.getElementById('btSkin').value
+        if (modo == 'Modo Dark'){ 
+            document.getElementById('btSkin').value = 'Modo Light'
+            document.getElementById('css').href = 'styleDark.css'
+        } else if (modo == 'Modo Light'){
+            document.getElementById('btSkin').value = 'Modo Dark'
+            document.getElementById('css').href = 'styleLight.css'
+        }
+    }
 
-  //  imgApp.setAttribute('id', 'imgApp')
-  //  imgApp.setAttribute('src', 'youtube-icon.png')
-  //  logo.appendChild(imgApp)
+    
+
+  

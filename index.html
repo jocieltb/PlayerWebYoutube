@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="sortcut icon" href="youtube-icon.png" type="image/png" />
     <title>Player Youtube</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleDark.css" id="css">
 </head>
 
 <body>
@@ -18,10 +18,11 @@
             <input type="text" name="txturl" id="txturl" size="60">
             <input type="button" id="btCarregar" value="Carregar" onclick="carregarVideo()">
             <input type="button" id="btOcultar" value="-" onclick="ocutarControles()">
+            <input type="button" id="btSkin" value="Modo Light" onclick="Skin()">
         </div>
-    <iframe id="ifVideo" hidden="true" src="#" frameborder="0" ></iframe>    
+    <iframe id="ifVideo" hidden="true" src="" frameborder="0" ></iframe>    
     <div id="imgLogo">
-        <img src="logo.png" alt="logo">
+        <img id="imagemLogo" src="logo.png" alt="logo">
     </div>
     </section>
 </body>

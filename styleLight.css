@@ -1,0 +1,61 @@
+#dvcontrole{
+    margin: 10px auto 8px auto;
+    width: 70vw;
+    background: white;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 2px 2px 5px rgba(139, 139, 139, 0.5);
+    text-align: center;
+    color:#3C4043;
+    font: Normal 12pt Arial;
+    
+}
+#mostrar{
+    position: absolute;
+    top:0px;
+    padding: 3px;
+    width: 230px;
+    float: right;
+    background: black;
+    
+}
+#btCarregar, #btOcultar, #btSkin, #txturl{
+    font: Normal 12pt Arial;
+    background: #ddd;
+    color: #3C4043;
+}
+#txturl{
+    background: #ddd;
+}
+#imgLogo {
+    text-align: center;
+    margin-top: 120px;
+}
+
+input[type=text] {
+    border-radius: 5px;
+    width: 50%;
+}
+input[type=button]{
+    border-radius: 5px;
+}  
+html, body { 
+    height: 100%;
+    background: black
+    
+}
+
+section{
+    text-align: center;
+    background: white;
+    height: 98%;
+}
+
+html{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    
+}
+#imagemLogo{
+   filter: grayscale(0);
+}
